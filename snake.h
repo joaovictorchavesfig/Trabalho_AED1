@@ -16,6 +16,19 @@ typedef struct list* pont;
 
 void append(pont* head_ref, int new_x,int new_y);
 void add_fruit(BITMAP* buffer,int x,int y);
+int eat_fruit(int* fruit_x,int* fruit_y,int x,int y);
+
+int eat_fruit(int* fruit_x,int* fruit_y,int x,int y)
+{
+	if((*fruit_x+10>=x && *fruit_x<=x+20) && (*fruit_y+10>=y && *fruit_y<=y+20))
+	{
+		*fruit_x = rand()%820;
+		*fruit_y = 20 + rand()%570;
+		return 1;
+	}
+	return 0;
+	
+}
 
 void add_fruit(BITMAP* buffer,int x,int y)
 {
