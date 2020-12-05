@@ -108,7 +108,7 @@ int main()
 	    	head->y = head->y+dirY*tamanho;
 	    	if(matrix[head->x][head->y]==1)
 			{
-				gameover();
+				gameover(head,fruit_x,fruit_y);
 			}
 	    	matrix[head->x][head->y] = 1;
 		}
