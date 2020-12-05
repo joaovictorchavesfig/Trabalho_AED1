@@ -25,10 +25,19 @@ int dirY;
 void add_fruit(BITMAP* buffer,int x,int y);
 int eat_fruit(int* fruit_x,int* fruit_y,int x,int y,pont head);
 void move_body(pont body,int x,int y);
-void gameover();
+void gameover(pont head,int* fruit_x,int* fruit_y);
 
 //função para encerrar o jogo
-void gameover(){
+void gameover(pont head,int* fruit_x,int* fruit_y){
+   struct list* tmp;
+   while (head != NULL)
+    {
+       tmp = head;
+       head = head->prox;
+       free(tmp);
+    }
+    free(fruit_x);
+    free(fruit_y);
 	do{
 	clear(buffer);
 	textprintf_ex(buffer, font, SCREEN_W/2-50, SCREEN_H/2-20, makecol(255, 0, 0), -1, "GAME OVER");
